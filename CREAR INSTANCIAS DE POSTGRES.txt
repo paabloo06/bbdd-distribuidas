@@ -1,0 +1,36 @@
+mkdir "C:\pgsql\instancia_1"
+mkdir "C:\pgsql\instancia_2"
+mkdir "C:\pgsql\instancia_3"
+mkdir "C:\pgsql\instancia_4"
+
+"C:\Program Files\PostgreSQL\17\bin\initdb.exe" -D "C:\pgsql\instancia_1" -U postgres
+"C:\Program Files\PostgreSQL\17\bin\initdb.exe" -D "C:\pgsql\instancia_2" -U postgres
+"C:\Program Files\PostgreSQL\17\bin\initdb.exe" -D "C:\pgsql\instancia_3\data" -U postgres
+"C:\Program Files\PostgreSQL\17\bin\initdb.exe" -D "C:\pgsql\instancia_4" -U postgres
+
+notepad "C:\pgsql\instancia_1\postgresql.conf"
+notepad "C:\pgsql\instancia_2\postgresql.conf"
+notepad "C:\pgsql\instancia_3\data\postgresql.conf"
+notepad "C:\pgsql\instancia_4\postgresql.conf"
+
+port = 5433
+port = 5434
+port = 5435
+port = 5436
+
+ABRIR CMD ADMINISTRADOR
+
+"C:\Program Files\PostgreSQL\17\bin\pg_ctl.exe" register -N "PostgreSQLInstancia1" -D "C:\pgsql\instancia_1" -S auto
+"C:\Program Files\PostgreSQL\17\bin\pg_ctl.exe" register -N "PostgreSQLInstancia2" -D "C:\pgsql\instancia_2" -S auto
+"C:\Program Files\PostgreSQL\17\bin\pg_ctl.exe" register -N "PostgreSQLInstancia3" -D "C:\pgsql\instancia_3\data" -S auto
+"C:\Program Files\PostgreSQL\17\bin\pg_ctl.exe" register -N "PostgreSQLInstancia4" -D "C:\pgsql\instancia_4" -S auto
+
+INICIAR DESDE services.msc
+
+psql -U postgres -p 5433
+psql -U postgres -p 5434
+psql -U postgres -p 5435
+psql -U postgres -p 5436
+
+
+

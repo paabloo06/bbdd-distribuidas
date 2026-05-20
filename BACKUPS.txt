@@ -1,0 +1,2 @@
+pg_basebackup -R -h localhost -p 5433 -U usuario_replica -D "C:\pgsql\instancia_3" -P
+pg_basebackup -R -h localhost -p 5434 -U usuario_replica -D "C:\pgsql\instancia_4" -P
